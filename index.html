@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CampusConnect | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #111111);
+      color: white;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background-image: radial-gradient(circle, #222 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: moveBackground 40s linear infinite;
+      z-index: 0;
+      opacity: 0.1;
+    }
+
+    @keyframes moveBackground {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100px, -100px); }
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00ff88;
+  transition: width 0.4s ease;
+}
+
+nav a:hover {
+  color: #00ff88;
+  transform: translateY(-3px);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+    nav a:nth-child(1) { animation-delay: 0.2s; }
+    nav a:nth-child(2) { animation-delay: 0.3s; }
+    nav a:nth-child(3) { animation-delay: 0.4s; }
+    nav a:nth-child(4) { animation-delay: 0.5s; }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      padding: 80px 20px 40px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #00ff88;
+      opacity: 0;
+      animation: fadeInUp 0.5s forwards;
+      animation-delay: 0.8s;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 15px;
+      color: #ccc;
+      opacity: 0;
+      animation: fadeInUp 0.5s forwards;
+      animation-delay: 1s;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeInUp 0.5s forwards;
+      animation-delay: 1.2s;
+    }
+
+    .buttons a {
+      display: inline-block;
+      background-color: #00ff88;
+      color: #000;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #00cc6a;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00cc6a;
+    }
+
+    .features,
+    .testimonials,
+    .how-it-works,
+    .get-involved,
+    .gallery,
+    .faq {
+      padding: 50px 20px;
+    }
+
+    .features,
+    .how-it-works,
+    .faq {
+      background-color: #121212;
+    }
+
+    .features h2,
+    .testimonials h2,
+    .how-it-works h2,
+    .get-involved h2,
+    .gallery h2,
+    .faq h2 {
+      color: #00ff88;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .features ul,
+    .how-it-works ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .features li,
+    .how-it-works li {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .testimonial {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 8px;
+      max-width: 600px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    .get-involved p {
+      color: #ccc;
+      margin: 10px 0;
+    }
+
+    .gallery {
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    .faq-item {
+      max-width: 700px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .faq-item h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    /* Footer Styles */
+    .main-footer {
+      background-color: #111;
+      padding: 40px 20px 20px;
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .footer-column h3 {
+      color: #00ff88;
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #00ff88;
+    }
+
+    .footer-column a {
+      color: #00ff88;
+      text-decoration: none;
+    }
+
+    .footer-column img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #222;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin: 10px 0 0;
+      }
+      .footer-column {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<a href="#" class="scroll-up" id="scrollUpBtn" title="Go to top">↑</a>
+<script>
+  const scrollBtn = document.getElementById('scrollUpBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+</script>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="CampusConnect Logo" />
+      <div class="logo-text">CampusConnect</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact Me</a>
+      <a href="about.html">About</a>
+      </header>
+
+  <section class="hero">
+    <h1>Welcome to CampusConnect</h1>
+    <p>Your one-stop portal for student event registration and updates!</p>
+     <section id="home"></section>
+    <div class="buttons">
+      <a href="register.html">Register Now</a>
+      <a href="events.html">View Events</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why Choose CampusConnect?</h2>
+    <ul>
+      <li>🚀 Seamless and fast event registration</li>
+      <li>📅 Stay updated on upcoming campus events</li>
+      <li>🔒 Secure and simple form submission</li>
+      <li>📲 Mobile-friendly design for convenience</li>
+    </ul>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Students Say</h2>
+    <div class="testimonial">“CampusConnect made signing up for events so easy. I never miss anything now!” – Aishwarya, CSE</div>
+    <div class="testimonial">“The interface is clean and smooth. It’s fun to use!” – Rahul, Mechanical Engg.</div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ul>
+      <li><strong>1. Explore:</strong> Browse upcoming events on the Events page.</li>
+      <li><strong>2. Register:</strong> Use the Register page to sign up in seconds.</li>
+      <li><strong>3. Get Notified:</strong> Receive instant updates and reminders.</li>
+      <li><strong>4. Participate:</strong> Join your chosen events and shine!</li>
+    </ul>
+  </section>
+
+  <section class="get-involved">
+    <h2>Get Involved</h2>
+    <p>Want to contribute to organizing events or provide feedback?</p>
+    <p>Email us at <a href="mailto:contact@campusconnect.in" style="color: #00ff88;">contact@campusconnect.in</a> or connect with your campus representative.</p>
+    <div class="buttons">
+      <a href="mailto:contact@campusconnect.in">Contact Us</a>
+      <a href="register.html">Join an Event</a>
+    </div>
+  </section>
+
+  <section class="gallery">
+  <h2>Event Highlights</h2>
+  <div class="gallery-grid">
+    <div>
+      <img src="Event 1.png" alt="Event 1">
+      <p>Event 1</p>
+    </div>
+    <div>
+      <img src="Event 2.png" alt="Event 2">
+      <p>Event 2</p>
+    </div>
+    <div>
+      <img src="Event 3.png" alt="Event 3">
+      <p>Event 3</p>
+    </div>
+    <div>
+      <img src="Event 4.png" alt="Event 4">
+      <p>Event 4</p>
+    </div>
+  </div>
+</section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How do I register for an event?</h3>
+      <p>Go to the "Register" page, fill in your details, and click submit. You’ll get a confirmation instantly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is there any registration fee?</h3>
+      <p>Most events are free. If any event requires payment, details will be clearly mentioned on the Events page.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I edit my registration details later?</h3>
+      <p>Currently, editing is not supported. You can register again with updated info or contact support.</p>
+    </div>
+  </section>
+
+  <!-- ✅ Improved Footer Section -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-column logo-section">
+        <img src="logo.png" alt="CampusConnect Logo" />
+        <p>Your gateway to student events and campus updates.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="register.html">Register</a></li>
+
+    <nav>
+      <section id="Home"> </section>
+      <section id="About Us"></section>
+      <section id="Register"></section>
+      <section id="Contact"></section>
+      </nav>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#event guidelines">Event Guidelines</a></li>
+          <li><a href="#privacy policy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Me</h3>
+        <p><a href="mailto:mdakeef2009@gmail.com">📧 mdakeef2009@gmail.com</a>
+        </p>contact="9342903964"</p>
+        </p>
+
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 CampusConnect. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
+

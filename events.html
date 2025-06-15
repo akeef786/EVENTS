@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusConnect | Events</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ff88;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #00ff88;
+    }
+
+    .events-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .event-card {
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 255, 136, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02);
+    }
+
+    .event-card h3 {
+      margin-bottom: 10px;
+      color: #00ff88;
+    }
+
+    .event-card p {
+      margin: 8px 0;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!--<nav>
+      <a href="index.html">Home</a>
+      <a href="event.html">Events</a>
+      <a href="register.html">Register</a>
+    </nav>-->
+  </header>
+
+  <h1>Upcoming Campus Events</h1>
+
+  <div class="events-container">
+
+    <div class="event-card">
+      <h3>CodeSprint</h3>
+      <p><strong>Type:</strong> Technical</p>
+      <p><strong>Date:</strong> June 25, 2025</p>
+      <p>A thrilling coding contest to test your programming logic under time pressure.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>Talent Night</h3>
+      <p><strong>Type:</strong> Cultural</p>
+      <p><strong>Date:</strong> June 26, 2025</p>
+      <p>Showcase your talent in singing, dancing, or comedy. Open stage for all students.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>Resume Building 101</h3>
+      <p><strong>Type:</strong> Workshop</p>
+      <p><strong>Date:</strong> June 27, 2025</p>
+      <p>Learn how to create a powerful resume and LinkedIn profile from scratch.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>Poster Design Contest</h3>
+      <p><strong>Type:</strong> Art & Design</p>
+      <p><strong>Date:</strong> June 28, 2025</p>
+      <p>Create and submit a digital poster based on the theme: "Future of Tech".</p>
+    </div>
+
+    <div class="event-card">
+      <h3>TechTrivia Quiz</h3>
+      <p><strong>Type:</strong> Quiz</p>
+      <p><strong>Date:</strong> June 29, 2025</p>
+      <p>Join this fun and fast-paced quiz with questions from tech, science, and more.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>Photography Challenge</h3>
+      <p><strong>Type:</strong> Creative</p>
+      <p><strong>Date:</strong> June 30, 2025</p>
+      <p>Submit your best photo based on the theme "Nature on Campus". Top 3 win prizes!</p>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 CampusConnect. All rights reserved.
+  </footer>
+
+</body>
+</html>
